@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import MainLayout from './wrappers/MainLayout';
+import Dashboard from './pages/dashboard/Dashboard';
+import PostManager from './pages/postManager/PostManager';
+
+import { routeHelper } from './helpers/routeHelper';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+   return (
+      <BrowserRouter>
+         <Routes>
+            <Route element={<MainLayout />}>
+               <Route
+                  path={routeHelper.DASHBOARD.PATH}
+                  element={<Dashboard />}
+               />
+               <Route
+                  path={routeHelper.POST_MANAGER.PATH}
+                  element={<PostManager />}
+               />
+            </Route>
+         </Routes>
+      </BrowserRouter>
+   );
+};
 
 export default App;
