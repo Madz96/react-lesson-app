@@ -12,6 +12,7 @@
 ### Setting up the project
 1. Clone the project into your computer.
     - Get the repository link (HTTPS (will prompt for email and password when cloning in terminal)|| SSH (you need to setup the ssh key for your account)).
+
     ![Repo Link](./assets/setupGuide/image.png)
 
     - use `git clone <link>` to copy the repository
@@ -21,6 +22,7 @@
 3. Use `git checkout -b <branch_name>` before starting work.
     - `git checkout -b <branch_name>` is the equivalent of running `git branch <branch_name>` and then `git checkout <branch_name>`. The command will create the new branch and check you out the new branch on the same go.
     - You can verify your current working branch here in your IDE (VSCode)
+    
     ![Working Branch Indicator](./assets/setupGuide/image-1.png)
 
 4. Run `npm start` and continue working on your assigned tasks.
