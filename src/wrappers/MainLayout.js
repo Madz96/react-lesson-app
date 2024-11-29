@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 import Header from '../components/common/header/Header';
 
 const MainLayout = () => {
    return (
-      <div>
+      <>
          <Header />
-         <Outlet />
-      </div>
+         <Container fluid>
+            <Outlet />
+         </Container>
+      </>
    );
 };
 

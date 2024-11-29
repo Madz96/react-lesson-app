@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 import { commonHelper } from '../../../helpers/commonHelper';
 import { routeHelper } from '../../../helpers/routeHelper';
