@@ -11,33 +11,33 @@ const Header = () => {
 
    return (
       <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-         <Container>
-            <Navbar.Brand
-               href=""
-               onClick={() => navigate(routeHelper.DASHBOARD.PATH)}
-            >
-               {APP_NAME}
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-               <Nav className="me-auto">
-                  <Nav.Link
-                     href=""
-                     onClick={() => navigate(routeHelper.DASHBOARD.PATH)}
-                  >
-                     {NAV_ITEMS.DASHBOARD}
-                  </Nav.Link>
-                  <Nav.Link
-                     href=""
-                     onClick={() => navigate(routeHelper.POST_MANAGER.PATH)}
-                  >
-                     {NAV_ITEMS.POST_MANAGER}
-                  </Nav.Link>
-               </Nav>
-            </Navbar.Collapse>
-         </Container>
-      </Navbar>
-   );
-};
+      <Container>
+         <Navbar.Brand
+            href=""
+            onClick={() => navigate(routeHelper.DASHBOARD.PATH)}
+         >
+            {APP_NAME}
+         </Navbar.Brand>
+         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+         <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+               <Nav.Link
+                  href=""
+                  onClick={() => navigate(routeHelper.DASHBOARD.PATH)}
+               >
+                  {NAV_ITEMS.DASHBOARD}
+               </Nav.Link>
+               <Nav.Link
+                  href=""
+                  onClick={() => navigate(routeHelper.POST_MANAGER.PATH)}
+               >
+                  {NAV_ITEMS.POST_MANAGER}
+               </Nav.Link>
+            </Nav>
+         </Navbar.Collapse>
+      </Container>
+   </Navbar>
+);
+}; 
 
 export default Header;

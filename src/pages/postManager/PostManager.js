@@ -1,6 +1,6 @@
 const PostManager = () => {
     return (
-        <h1>Post Manager</h1>
+        <h1>GNEURO ENGINEERING (PVT) LTD!</h1>
     )
 }
 

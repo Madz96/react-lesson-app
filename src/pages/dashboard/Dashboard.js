@@ -1,8 +1,8 @@
 const Dashboard = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
-      <p>We Love GNeuro!!!</p>
+      <h1>WELCOME TO GNEURO ENGINEERING (PVT) LTD</h1>
+      <p>GNEURO ARTICLE BASE</p>
     </div>
   );
 };
