@@ -1,30 +1,35 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-import MainLayout from './wrappers/MainLayout';
-import Dashboard from './pages/dashboard/Dashboard';
-import PostManager from './pages/postManager/PostManager';
-
-import { routeHelper } from './helpers/routeHelper';
-
-import './App.css';
+import React, { useState } from "react";
+import PosterForm from "./components/PosterForm";
+import PosterList from "./components/PosterList";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CardExample from './components/CardExample';
 
 const App = () => {
-   return (
-      <BrowserRouter>
-         <Routes>
-            <Route element={<MainLayout />}>
-               <Route
-                  path={routeHelper.DASHBOARD.PATH}
-                  element={<Dashboard />}
-               />
-               <Route
-                  path={routeHelper.POST_MANAGER.PATH}
-                  element={<PostManager />}
-               />
-            </Route>
-         </Routes>
-      </BrowserRouter>
-   );
+  const [posters, setPosters] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [newPoster, setNewPoster] = useState(null);
+
+
+  const handleSubmit = (poster) => {
+    const newPoster = { ...poster, id: Date.now() };
+    setPosters([...posters, newPoster]);
+    setNewPoster(newPoster);
+    setShowModal(true);
+  };
+
+  const handleDelete = (id) => {
+    setPosters(posters.filter((poster) => poster.id !== id));
+  };
+
+  return (
+    <div>
+      <div className="App">
+        <CardExample />
+      </div>
+      <PosterForm onSubmit={handleSubmit} />
+      <PosterList data={posters} onDelete={handleDelete} />
+    </div>
+  );
 };
 
 export default App;
