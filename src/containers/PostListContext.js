@@ -29,6 +29,7 @@ const PostListProvider = ({ children, ...props }) => {
 ]);
 
 
+console.log(JSON.parse(localStorage.getItem("posts")));
 
 const values = useMemo(
     () => ({

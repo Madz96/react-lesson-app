@@ -16,7 +16,7 @@ const App = () => {
             <Route element={<MainLayout />}>
                <Route
                   path={routeHelper.DASHBOARD.PATH}
-                  element={<Dashboard />}
+                  element={<PostListProvider><Dashboard /></PostListProvider>}
                />
          
                <Route
