@@ -13,7 +13,7 @@ const App = () => {
    return (
       <BrowserRouter>
          <Routes>
-            <Route element={<MainLayout />}>
+          <Route element={<MainLayout />}>
                <Route
                   path={routeHelper.DASHBOARD.PATH}
                   element={<PostListProvider><Dashboard /></PostListProvider>}

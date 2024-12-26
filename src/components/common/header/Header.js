@@ -4,12 +4,16 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { commonHelper } from '../../../helpers/commonHelper';
 import { routeHelper } from '../../../helpers/routeHelper';
 
+
+
 const Header = () => {
    const { APP_NAME, NAV_ITEMS } = commonHelper;
 
    const navigate = useNavigate();
+ 
 
    return (
+      
       <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
          <Navbar.Brand
@@ -18,6 +22,7 @@ const Header = () => {
          >
             {APP_NAME}
          </Navbar.Brand>
+         
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -33,10 +38,12 @@ const Header = () => {
                >
                   {NAV_ITEMS.POST_MANAGER}
                </Nav.Link>
+             
             </Nav>
          </Navbar.Collapse>
       </Container>
    </Navbar>
+   
 );
 }; 
 
