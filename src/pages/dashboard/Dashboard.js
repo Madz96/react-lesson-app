@@ -39,13 +39,12 @@ const Dashboard = () => {
         alert(postContent);
     };
 
-    // Prepare data for the bar chart
     const chartData = {
         labels: postData.map((post, index) => `Post ${index + 1}`),
         datasets: [
             {
                 label: 'Number of Posts',
-                data: postData.map(() => 1), // Example: 1 post per label
+                data: postData.map(() => 1),
                 backgroundColor: 'rgba(75, 192, 192, 0.6)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
