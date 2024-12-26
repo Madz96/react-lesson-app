@@ -1,6 +1,17 @@
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 const PostManager = () => {
+    
+
+
     return (
-        <h1>Post Manager</h1>
+        <div>
+          <h1>Welcome to the Post APP!</h1>
+        </div>
     )
 }
 
