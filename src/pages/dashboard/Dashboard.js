@@ -94,7 +94,9 @@ const Dashboard = () => {
          <center>
             <Accordion defaultActiveKey={['0']} alwaysOpen>
                <Accordion.Item eventKey="0">
-                  <Accordion.Header>{dashboardHelper.POST_CONTAINER.TITLE}</Accordion.Header>
+                  <Accordion.Header>
+                     {dashboardHelper.POST_CONTAINER.TITLE}
+                  </Accordion.Header>
                   <Accordion.Body>
                      <Button variant="primary" onClick={handleShow}>
                         Click Here to Read the Newest Posts!{' '}
@@ -110,8 +112,8 @@ const Dashboard = () => {
                   <Accordion.Body>
                      {lastPost && (
                         <>
-                           <h3>{lastPost.Title}</h3>
-                           <p>{lastPost.Content}</p>
+                           <h3>{lastPost.title}</h3>
+                           <p>{lastPost.content}</p>
                            <small>
                               Created: {formatTimestamp(lastPost.createdTime)}
                            </small>
@@ -144,19 +146,27 @@ const Dashboard = () => {
                         {postData.map((post, index) => (
                            <div key={index} style={{ marginBottom: '10px' }}>
                               <ListGroup.Item>
-                                 <h6>Post No: {post.id}</h6>
+                                 <h6>Post No: {index + 1}</h6>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                 <h5>{post.Title}</h5>
+                                 <h5>{post.title}</h5>
                               </ListGroup.Item>
                               <ListGroup.Item>
-                                 <p>{post.Content}</p>
+                                 <p>{post.content}</p>
                               </ListGroup.Item>
                               <ListGroup.Item>
                                  <small>
                                     Created: {formatTimestamp(post.createdTime)}
                                  </small>
                               </ListGroup.Item>
+                              {post.lastEdited && (
+                                 <ListGroup.Item>
+                                    <small>
+                                       Last Edited:{' '}
+                                       {formatTimestamp(post.lastEdited)}
+                                    </small>
+                                 </ListGroup.Item>
+                              )}
                               <ListGroup.Item action onClick={postContent1}>
                                  See this Post in JSON format!
                               </ListGroup.Item>

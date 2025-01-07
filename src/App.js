@@ -8,12 +8,12 @@ import PostListProvider from "./containers/PostListContext.js";
 
 import { routeHelper } from './helpers/routeHelper';
 
-import { addPoster, editPoster, saveEdit, deletePoster } from './services/posterServices';
+import { addPoster, saveEdit, deletePoster } from './services/posterServices';
 
 import './App.css';
 
 const App = () => {
-   const [posters, setPosters] = useState([]);
+   const [posters, setPosters] = useState(JSON.parse(localStorage.getItem('posts')) || []);
    const [currentPoster, setCurrentPoster] = useState(null);
 
    const handleAddPoster = (newPoster) => {
@@ -21,7 +21,7 @@ const App = () => {
    };
 
    const handleEditPoster = (posterToEdit) => {
-      setCurrentPoster(editPoster(posterToEdit));
+      setCurrentPoster(posterToEdit);
    };
 
    const handleSaveEdit = (updatedPoster) => {

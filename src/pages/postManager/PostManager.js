@@ -8,9 +8,11 @@ const PostManager = ({ posters, onAddPoster, onSaveEdit, onDeletePoster }) => {
    const [showDetailsModal, setShowDetailsModal] = useState(false);
    const [selectedPoster, setSelectedPoster] = useState(null);
    const [posterName, setPosterName] = useState('');
+   const [posterContent, setPosterContent] = useState('');
 
    const handleShowModal = (poster) => {
       setPosterName(poster ? poster.title : '');
+      setPosterContent(poster ? poster.content : '');
       setSelectedPoster(poster);
 
       setShowModal(true);
@@ -32,11 +34,12 @@ const PostManager = ({ posters, onAddPoster, onSaveEdit, onDeletePoster }) => {
       const newPoster = {
          id: selectedPoster ? selectedPoster.id : Date.now(),
          title: posterName,
-         timestamp: Date.now(),
+         content: posterContent,
+         createdTime: selectedPoster ? selectedPoster.createdTime : Date.now(),
       };
 
       if (selectedPoster) {
-         onSaveEdit(newPoster);
+         onSaveEdit({ ...newPoster, lastEdited: Date.now() });
       } else {
          onAddPoster(newPoster);
       }
@@ -80,6 +83,16 @@ const PostManager = ({ posters, onAddPoster, onSaveEdit, onDeletePoster }) => {
                         placeholder="Enter Poster Title"
                         value={posterName}
                         onChange={(e) => setPosterName(e.target.value)}
+                        required
+                     />
+                     <Form.Label>Poster Content</Form.Label>
+                     <Form.Control
+                        type="text"
+                        as="textarea"
+                        rows={3}
+                        placeholder="Enter Poster Content"
+                        value={posterContent}
+                        onChange={(e) => setPosterContent(e.target.value)}
                         required
                      />
                   </Form.Group>

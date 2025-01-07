@@ -1,9 +1,13 @@
 export const addPoster = (posters, newPoster) => {
-   return [...posters, newPoster];
+   const posts = [...posters, newPoster];
+   localStorage.setItem('posts', JSON.stringify(posts));
+   return posts;
 };
 
 export const deletePoster = (posters, id) => {
-   return posters.filter((poster) => poster.id !== id);
+   const posts = posters.filter((poster) => poster.id !== id);
+   localStorage.setItem('posts', JSON.stringify(posts));
+   return posts;
 };
 
 export const editPoster = (posterToEdit) => {
@@ -11,7 +15,9 @@ export const editPoster = (posterToEdit) => {
 };
 
 export const saveEdit = (posters, updatedPoster) => {
-   return posters.map((poster) =>
+   const posts = posters.map((poster) =>
       poster.id === updatedPoster.id ? updatedPoster : poster
    );
+   localStorage.setItem('posts', JSON.stringify(posts));
+   return posts;
 };
